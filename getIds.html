@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="father">
+		<div id="son1"></div>
+		<ul id="son2">
+			<li id="nv01"></li>
+			<li id="nv02"></li>
+			<li id="nv03"></li>
+			<li id="nv04"></li>
+			<li id="nv05"></li>			
+		</ul>
+	</div>
+
+
+	<script>
+		
+
+	var father = document.querySelector('#father');
+	// console.log(father.children)
+	var ids = [];
+	function getId(ele){
+		
+		for(var i=0;i<ele.children.length ; i ++){
+			if(ele.children[i].children.length > 0){
+				getId(ele.children[i]);
+			}
+			var id = ele.children[i].getAttribute('id');
+			ids.push(id);
+		}
+
+		return ids;
+
+	}
+
+	console.log(getId(father))
+	</script>
+</body>
+</html>
